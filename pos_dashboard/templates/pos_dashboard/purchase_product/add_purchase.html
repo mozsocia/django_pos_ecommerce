@@ -1,6 +1,7 @@
 {% extends 'pos_dashboard/base.html' %}
 {% block body %}
 
+
 <div class="main-wrapper">
     <div class="page-wrapper">
         <div class="content">
@@ -10,7 +11,7 @@
                     <h6>Add/Update Purchase</h6>
                 </div>
             </div>
-            <form action="{% url 'purchase_product' %}" method="POST" enctype="multipart/form-data">
+            <!-- <form action="{% url 'purchase_product' %}" method="POST" enctype="multipart/form-data">
                 <div class="card">
                     <div class="card-body">
                         {% csrf_token %}
@@ -190,7 +191,184 @@
                         </div>
                     </div>
                 </div>
-            </form>
+            </form> -->
+            <div x-data="jsonDataForm()">
+                <form @submit="submitForm" id="jsonForm">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row"> 
+
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="supplier">Supplier:</label>
+                                            <select class="form-select" name="supplier" id="supplier">
+                                            <option value="1">Supplier 1</option>
+                                            <option value="2">Supplier 2</option>
+                                            <option value="3">Supplier 3</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="phone">Phone number</label>
+                                            <div class="input-groupicon">
+                                                <input type="number" name="phone" id="phone" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="date">Date:</label>
+                                            <div class="input-groupicon">
+                                                <input type="date" id="date" name="date" x-model="formData.date" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="status">Status:</label>
+
+                                            <div class="input-groupicon">
+                                                <input type="number" id="status" name="status" x-model="formData.status" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="payment_status">Payment Status:</label>
+                                            <div class="input-groupicon">
+                                                <input type="number" id="payment_status" name="payment_status" x-model="formData.payment_status" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="total_quantity">Total Quantity:</label>
+                                            <div class="input-groupicon">
+                                                <input type="number" id="total_quantity" name="total_quantity" x-model="formData.total_quantity" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="total">Total:</label>
+                                            <div class="input-groupicon">
+                                                <input type="number" step="0.01" id="total" name="total" x-model="formData.total" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="discount">Discount:</label>
+                                            <div class="input-groupicon">
+                                                <input type="number" step="0.01" id="discount" name="discount" x-model="formData.discount" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-lg-12 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="note">Note:</label>
+                                            <div class="input-groupicon">
+                                                <textarea id="note" name="note" x-model="formData.note" class="form-control"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="shipping_cost">Shipping Cost:</label>
+
+                                            <div class="input-groupicon">
+                                                <input type="number" step="0.01" id="shipping_cost" name="shipping_cost" x-model="formData.shipping_cost" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="grand_total">Grand Total:</label>
+                                            <div class="input-groupicon">
+                                                <input type="number" step="0.01" id="grand_total" name="grand_total" x-model="formData.grand_total" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="paid">Paid:</label>
+                                            <div class="input-groupicon">
+                                                <input type="number" step="0.01" id="paid" name="paid" x-model="formData.paid" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="due">Due:</label>
+                                            <div class="input-groupicon">
+                                                <input type="number" step="0.01" id="due" name="due" x-model="formData.due" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                        <div class="form-group">
+                                            <label for="due">Purchase order product</label>
+                                            <div class="input-groupicon">
+                                                <input type="number" id="customer" name="customer" x-model="formData.customer" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                    <template x-for="(product, index) in purchaseOrderProduct" :key="index">
+                                        <div>
+                                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
+                                                <div class="form-group">
+                                                    <label for="quantity">Quantity <span x-text="product.id"></span></label>
+                                                    <div class="input-groupicon">
+                                                        <input type="number" x-model="product.quantity" :name="{product.id}" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
+                                                <div class="form-group">
+                                                    <label for="product">Product:</label>
+                                                    <div class="input-groupicon">
+                                                        <input type="number" x-model="product.product" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
+                                                <div class="form-group">
+                                                    <label for="sub_total">Sub Total:</label>
+                                                    <div class="input-groupicon">
+                                                        <input type="number" step="0.01" x-model="product.sub_total" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
+                                                <div class="form-group">
+                                                    <label for="purchase">Purchase</label>
+                                                    <div class="input-groupicon">
+                                                        <input type="number" step="0.01" x-model="product.purchase" class="form-control">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </template>
+
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <button type="button" @click="addProductField" class="btn btn-submit me-2">Add Purchase</button>
+                                            <button type="submit" class="btn btn-cancel">Submit JSON</button>
+                                           
+                                        </div>
+                                    </div>
+                            </div>
+                        </div> 
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>
