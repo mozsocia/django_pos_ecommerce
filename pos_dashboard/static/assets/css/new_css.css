@@ -94,9 +94,20 @@
   right: 6px;
 }
 
-.header .header-left {
+/* .header .header-left {
   background: #1b2850 !important;
   height: 50px;
+} */
+
+@media (min-width: 992px) {
+  .header .header-left {
+    background: #1b2850 !important;
+    height: 50px;
+    width: 240px;
+  }
+  .mini-sidebar .header-left {
+    width: 80px;
+  }
 }
 
 .page-header {
@@ -119,9 +130,6 @@
   padding: 8px 12px;
 }
 
-.header .header-left {
-  width: 240px;
-}
 table.dataTable {
   border-collapse: collapse;
 }
