@@ -418,3 +418,28 @@ def sales_due_list(request):
     }
     return render(request, 'pos_dashboard/sales/due_sales_list.html', context)
 
+
+# customer
+def add_customer(request):
+    if request.method == 'POST':
+
+        form=CustomersAddForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request,'successfully add your new customer')
+            return redirect('customers_list')
+    else:
+        form = CustomersAddForm()
+        context = {
+            'form':form
+        }
+    return render(request, 'pos_dashboard/customers/add_customers.html', context)
+
+
+def customers_list(request):
+    customer_list = Customer.objects.all()
+    context ={
+        'customer_list':customer_list
+    }
+    return render(request, 'pos_dashboard/customers/customers_list.html', context)
+

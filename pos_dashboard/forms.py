@@ -107,3 +107,18 @@ class UnitAddForm(forms.ModelForm):
     class Meta:
         model = Unit
         fields =['name']
+        
+class CustomersAddForm(forms.ModelForm):
+
+    class Meta:
+        model = Customer
+        fields = ["name", "customer_ID", "address", "phone", "email", "start_date", "image","Created_at","Updated_at"]        
+        
+        
+
+
+
+
+
+
+

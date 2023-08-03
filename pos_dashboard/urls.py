@@ -17,7 +17,7 @@ urlpatterns = [
     path('purchase-due-list/', purchase_due_list, name='purchase_due_list'),
  
 
-#Sales product
+    #Sales product
     path('sales/product/', sales_product, name='sales_product'),
     path('sales-list/', sales_list, name='sales_list'),
     path('new-purchase-return/', new_purchase_return, name='new_purchase_return'),
@@ -35,6 +35,10 @@ urlpatterns = [
     # Unit
     path('unit_add/', unit_add, name='unit_add'),
     # path('unit_list/', unit_list, name='unit_list'),
+    
+    # customer
+    path('add_customer', add_customer, name='add_customers'),
+    path('customers_list', customers_list, name='customers_list'),
 
 
 ]
