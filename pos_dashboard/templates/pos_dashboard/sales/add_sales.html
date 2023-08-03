@@ -15,7 +15,8 @@
                     <div class="card">
                     <div class="card-body">
                             <div class="row"> 
-                                
+
+    
                                     
                                     <div class="col-lg-3 col-sm-6 col-12">
                                         <div class="form-group">
@@ -118,8 +119,8 @@
                                                         <template x-for="(product, index) in saleOrderProducts" :key="index">
                                                             <tr>
                                                                 <td class="col-lg-3 col-sm-6 col-md-4  ">
-                                                                    <div class="form-group">
-                                                                        <select class="select" id="product" class="classToValidate" x-model="product.product":name="'purchase_order_product_product' + product.id">
+                                                                    <div class="form-group mb-2 mt-2">
+                                                                        <select class="select classToValidate" :id="'product'+ product.id " x-model="product.product":name="'purchase_order_product_product' + product.id">
                                                                             <option value="">Select a product</option>
                                                                             <option value="1">one product</option>
                                                                             <option value="2">2 product</option>
@@ -130,9 +131,23 @@
                                                                 
                                                                 <td class="col-lg-3 col-sm-6 col-md-4 "><input  class="form-control" type="number" class="classToValidate" step="0.01" x-model="product.sub_total" :name="'sale_order_product_sub_total' + product.id"></td>
                                                             
-                                                                <td>
-                                                                    <a href="javascript:void(0);" class="delete-set d-flex justify-content-center "><img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/delete.svg" alt="svg"></a>
+                                                                <td class="d-flex justify-content-center pb-3 pt-3">
+                                                                    <a href="javascript:void(0);" class="delete-set "><img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/delete.svg" alt="svg"></a>
                                                                 </td>
+
+                                                                <!-- <td>
+                                                                    <a class="me-3" href="https://dreamspos.dreamguystech.com/html/template/product-details.html">
+                                                                      <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/eye.svg" alt="img">
+                                                                    </a>
+                                                
+                                                                    <a class="me-3" href="https://dreamspos.dreamguystech.com/html/template/editproduct.html">
+                                                                      <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/edit.svg" alt="img">
+                                                                    </a>
+                                                
+                                                                    <a class="me-3 confirm-text" href="javascript:void(0);">
+                                                                      <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/delete.svg" alt="img">
+                                                                    </a>
+                                                                  </td> -->
                                                             </tr>
     
                                                         </template>
@@ -327,10 +342,18 @@
         addProductField() {
           this.counter_saleOrderProducts = this.counter_saleOrderProducts + 1;
           this.saleOrderProducts.push({ quantity: null, product: null, sub_total: null, id: this.counter_saleOrderProducts });
+        //     console.log(`#product${this.counter_saleOrderProducts}`)
+          this.$nextTick(function() {
+            $(".select").select2();
+        });
 
         },
 
+
+    
+
         addValidation(val) {
+   
           $("#jsonForm .classToValidate").each(function () {
             $(this).rules('add', {
               required: true
