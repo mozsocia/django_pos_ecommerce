@@ -277,6 +277,53 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-12 mt-3">
+                                            <button type="button" @click="addProductField" class="btn btn-submit me-2">Add Product</button>                                           
+                                        </div>
+                                    </div>
+                                    
+                                        <div class="row">
+                                            <div  class="table-responsive mt-3 mb-4">
+                                                <table class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th class="text-center">Product Name</th>
+                                                            <th class="text-center"><label for="quantity">Quantity:</span></label></th>
+                                                            <th class="text-center">Subtotal</th>
+                                                            <th class="text-center">Delete</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                        <template x-for="(product, index) in purchaseOrderProducts" :key="index">
+                                                            <tr>
+                                                                <td class="col-lg-3 col-sm-6 col-md-4  ">
+                                                                    <div class="form-group">
+                                                                        <select id="product" class="classToValidate" x-model="product.product":name="'purchase_order_product_product' + product.id">
+                                                                            <option value="">Select a product</option>
+                                                                            <option value="1">one product</option>
+                                                                            <option value="2">2 product</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </td>
+                                                                <td class="col-lg-3 col-sm-6 col-md-4 "> <input class="form-control" type="number" class="classToValidate" x-model="product.quantity":name="'purchase_order_product_quantity' + product.id"></td>
+                                                                
+                                                                <td class="col-lg-3 col-sm-6 col-md-4 "><input class="form-control" type="number" class="classToValidate" step="0.01" x-model="product.sub_total":name="'purchase_order_product_sub_total' + product.id"></td>
+                                                            
+                                                                <td>
+                                                                    <a href="javascript:void(0);" class="delete-set d-flex justify-content-center "><img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/delete.svg" alt="svg"></a>
+                                                                </td>
+                                                            </tr>
+    
+                                                        </template>
+                                                        
+                                                    
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
                                     <div class="col-lg-3 col-sm-6 col-md-4 col-12">
                                         <div class="form-group">
                                             <label for="shipping_cost">Shipping Cost:</label>
@@ -359,8 +406,7 @@
 
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <button type="button" @click="addProductField" class="btn btn-submit me-2">Add Purchase</button>
-                                            <button type="submit" class="btn btn-cancel">Submit JSON</button>
+                                            <button type="submit" class="btn btn-cancel">Submit </button>
                                            
                                         </div>
                                     </div>
@@ -377,60 +423,137 @@
 
 {% block script %}
 
-<!-- total_price -->
 <script>
+
+
+    // Initialize jQuery Validation Plugin after the document is ready
     $(document).ready(function () {
-        // Get the CSRF token
-        var csrftoken = $('[name="csrfmiddlewaretoken"]').val();
-
-        // Retrieve the necessary elements
-        var quantityInput = $('#id_quantity');
-        var unitPriceInput = $('#id_unit_price');
-        var totalInput = $('#id_total_price');
-        var subtotalInput = $('#id_sub_total');
-
-        var total_price_Input = $('#id_total_price');
-        var discount_price_input = $('#id_total_descount');
-        var subtotalInput = $('#id_sub_total');
-
-
-        var paidamountInput = $('#id_paid');
-        var dueamountInput = $('#id_due');
-
-       
-// Function to send AJAX request and update total
-        function updateTotal() {
-            
-            var quantity_val = quantityInput.val();
-            var unitPrice_val = unitPriceInput.val();
-            let discount_price_input_val = discount_price_input.val()
-            var paid_price_val = paidamountInput.val();
-
-            totalInput.val(quantity_val*unitPrice_val);
-
-  
-            subtotalInput.val(quantity_val * unitPrice_val - (discount_price_input_val || 0));
-
-            subtotalInput_val = subtotalInput.val()
-
-            dueamountInput.val(subtotalInput_val-paid_price_val)
-         
-        }
-        paidamountInput.on('change', updateTotal);
-        
-        
-        // Attach change event listeners to the quantity and unit price inputs
-        quantityInput.on('change', updateTotal);
-        unitPriceInput.on('change', updateTotal);
-
-        total_price_Input.on('change', updateTotal);
-        discount_price_input.on('change', updateTotal);
-
-        sub_total_Input.on('change', updateTotal);
+      $('#jsonForm').validate({
+        rules: {
+          phone: {
+            required: true,
+            digits: true
+          },
+          date: {
+            required: true
+          },
+          status: {
+            required: true,
+            digits: true
+          },
+          payment_status: {
+            required: true,
+            digits: true
+          },
+          total_quantity: {
+            required: true,
+            digits: true
+          },
+          total: {
+            required: true,
+            number: true
+          },
+          discount: {
+            required: true,
+            number: true
+          },
+          shipping_cost: {
+            required: true,
+            number: true
+          },
+          grand_total: {
+            required: true,
+            number: true
+          },
+          paid: {
+            required: true,
+            number: true
+          },
+          due: {
+            required: true,
+            number: true
+          },
+          note: {
+            required: true,
+            maxlength: 500
+          },
+          supplier: {
+            required: true,
+          },
+        },
+      });
 
     });
 
-</script>
+
+    function jsonDataForm() {
+      return {
+        formData: {
+          phone: null,
+          date: null,
+          status: null,
+          payment_status: null,
+          total_quantity: null,
+          total: null,
+          discount: null,
+          shipping_cost: null,
+          grand_total: null,
+          paid: null,
+          due: null,
+          note: null,
+          supplier: null,
+        },
+        counter_purchaseOrderProducts: 0,
+        purchaseOrderProducts: [],
+
+        addProductField() {
+          this.counter_purchaseOrderProducts = this.counter_purchaseOrderProducts + 1;
+          this.purchaseOrderProducts.push({ quantity: null, product: null, sub_total: null, id: this.counter_purchaseOrderProducts });
+
+        },
+
+        addValidation(val) {
+          $("#jsonForm .classToValidate").each(function () {
+            $(this).rules('add', {
+              required: true
+            });
+          });
+        },
+
+        submitForm(e) {
+          e.preventDefault();
+          const $form = $('#jsonForm');
+          if ($form.valid()) {
+            const formData = { ...this.formData };
+            formData.purchase_order_product = this.purchaseOrderProducts;
+            console.log(JSON.stringify(formData));
+
+
+            fetch('http://127.0.0.1:8000/api/purchases/create/', {
+              method: 'POST',
+              body: JSON.stringify(formData),
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                console.log('Successfully submitted:', data);
+              })
+              .catch((error) => {
+                console.error('Error submitting form:', error);
+              });
+
+
+          }
+        },
+
+
+
+      };
+    }
+
+  </script>
 
 {% endblock script %}
 
