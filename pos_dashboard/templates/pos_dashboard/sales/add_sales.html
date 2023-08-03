@@ -16,12 +16,15 @@
                         <div class="card-body">
                             <div class="row"> 
                                 
-                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                    
+                                    <div class="col-lg-3 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="customer">Customer:</label>
-                                            <div class="input-groupicon">
-                                                <input type="number" id="customer" name="customer" x-model="formData.customer" class="form-control">
-                                            </div>
+                                            <label>Customer:</label>
+                                            <select class="select" id="customer" name="customer" x-model="formData.customer">
+                                                <option value="">Select a customer</option>
+                                                <option value="1">one customer</option>
+                                                <option value="2">2 customer</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="col-lg-3 col-sm-6 col-md-4 col-12">
@@ -41,15 +44,17 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                                    <div class="col-lg-3 col-sm-6 col-12">
                                         <div class="form-group">
-                                            <label for="status">Status:</label>
-
-                                            <div class="input-groupicon">
-                                                <input type="number" id="status" name="status" x-model="formData.status" class="form-control">
-                                            </div>
+                                            <label>Status:</label>
+                                            <select class="select" id="status" name="status" x-model="formData.customer">
+                                                <option>Choose Status</option>
+                                                <option>complete</option>
+                                                <option>pending</option>
+                                            </select>
                                         </div>
                                     </div>
+                                    
                                     <div class="col-lg-3 col-sm-6 col-md-4 col-12">
                                         <div class="form-group">
                                             <label for="payment_status">Payment Status:</label>
