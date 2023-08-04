@@ -1,7 +1,18 @@
-.page-wrapper {
-  margin: 0 0 0 240px;
-  padding: 45px 0 0;
+
+body {
+  font-family: nunito, sans-serif;
+  font-size: 14px;
+  color: #000;
+  line-height: 1.5;
+  background-color: #f3f3f5;
 }
+@media (min-width: 992px) {
+  .page-wrapper {
+    margin: 0 0 0 240px;
+    padding: 45px 0 0;
+  }
+}
+
 .page-wrapper .content {
   padding: 15px;
   padding-top: 10px;
@@ -260,7 +271,9 @@ table.dataTable {
 .card {
   margin: 0 0 25px;
   border: 1px solid #091947;
-  border-top-width: 3px;
+  border-width: 3px 0 1px 0;
   border-radius: 6px;
   padding-left: 10px;
+  background-color: white;
+  box-shadow: 0px 3px 8px rgba(136,152,170,.65)!important;
 }
