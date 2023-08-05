@@ -254,6 +254,12 @@
     </div>
   </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+
+
+
 {% endblock body %}
 
 
@@ -261,71 +267,6 @@
 
 
 <script>
-
-
-  // Initialize jQuery Validation Plugin after the document is ready
-  $(document).ready(function () {
-    $('#jsonForm').validate({
-      rules: {
-        phone: {
-          required: true,
-          // Add any specific phone validation rules here, e.g., minlength, maxlength, regex, etc.
-        },
-        date: {
-          required: true,
-          // Add any specific date validation rules here, e.g., date format, etc.
-        },
-        status: {
-          required: true,
-          // Add any specific validation rules for the status field here.
-        },
-        payment_status: {
-          required: true,
-          // Add any specific validation rules for the payment_status field here.
-        },
-        total_quantity: {
-          required: true,
-          // Add any specific validation rules for the total_quantity field here.
-        },
-        total: {
-          required: true,
-          // Add any specific validation rules for the total field here.
-        },
-        discount: {
-          required: true,
-          // Add any specific validation rules for the discount field here.
-        },
-        shipping_cost: {
-          required: true,
-          // Add any specific validation rules for the shipping_cost field here.
-        },
-        grand_total: {
-          required: true,
-          // Add any specific validation rules for the grand_total field here.
-        },
-        paid: {
-          required: true,
-          // Add any specific validation rules for the paid field here.
-        },
-        due: {
-          required: true,
-          // Add any specific validation rules for the due field here.
-        },
-        note: {
-          required: true,
-          // Add any specific validation rules for the note field here.
-        },
-        customer: {
-          required: true,
-          // Add any specific validation rules for the customer field here.
-        },
-
-      },
-
-    });
-
-  });
-
 
 
   function jsonDataForm() {
@@ -431,6 +372,71 @@
 
 </script>
 
+
+<script>
+  // Initialize jQuery Validation Plugin after the document is ready
+  $(document).ready(function () {
+    $('#jsonForm').validate({
+      rules: {
+        phone: {
+          required: true,
+          // Add any specific phone validation rules here, e.g., minlength, maxlength, regex, etc.
+        },
+        date: {
+          required: true,
+          // Add any specific date validation rules here, e.g., date format, etc.
+        },
+        status: {
+          required: true,
+          // Add any specific validation rules for the status field here.
+        },
+        payment_status: {
+          required: true,
+          // Add any specific validation rules for the payment_status field here.
+        },
+        total_quantity: {
+          required: true,
+          // Add any specific validation rules for the total_quantity field here.
+        },
+        total: {
+          required: true,
+          // Add any specific validation rules for the total field here.
+        },
+        discount: {
+          required: true,
+          // Add any specific validation rules for the discount field here.
+        },
+        shipping_cost: {
+          required: true,
+          // Add any specific validation rules for the shipping_cost field here.
+        },
+        grand_total: {
+          required: true,
+          // Add any specific validation rules for the grand_total field here.
+        },
+        paid: {
+          required: true,
+          // Add any specific validation rules for the paid field here.
+        },
+        due: {
+          required: true,
+          // Add any specific validation rules for the due field here.
+        },
+        note: {
+          required: true,
+          // Add any specific validation rules for the note field here.
+        },
+        customer: {
+          required: true,
+          // Add any specific validation rules for the customer field here.
+        },
+
+      },
+
+    });
+
+  });
+</script>
 
 
 
