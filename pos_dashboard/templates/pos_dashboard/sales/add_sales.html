@@ -49,36 +49,37 @@
                 <div class="col-lg-3 col-sm-6 col-12">
                   <div class="form-group">
                     <label>Status:</label>
-                    <select class="select" id="status" name="status" x-model="formData.customer">
-                      <option>Choose Status</option>
-                      <option>complete</option>
-                      <option>pending</option>
+                    <select class="select" id="status" name="status" x-model="formData.status">
+                      <option value="">Choose Status</option>
+                      <option value="1">complete</option>
+                      <option value="0">pending</option>
                     </select>
                   </div>
                 </div>
 
-                
+
                 <div class="col-lg-12 col-sm-6 col-12">
                   <div class="form-group">
-                      <label>Product Name</label>
-                      <div class="input-groupicon">
-                          <input type="text" placeholder="Please type product code and select...">
-                          <div class="addonset">
-                              <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/scanners.svg" alt="img">
-                          </div>
-                      </div>
+                    <label>Products:</label>
+                    <select class="select" id="mySelect" name="mySelect" x-ref="selectField">
+                      <option value="">Select a product</option>
+                      <option value="11" data-name="one product" data-id="1" data-price="10" data-age="25">one product
+                      </option>
+                      <option value="22" data-name="two product" data-id="2" data-price="15" data-age="35">2 product
+                      </option>
+                    </select>
                   </div>
-              </div>
+                </div>
 
                 <div class="row">
-                  <div class="col-lg-12 mt-3">
-                    <button type="button" @click="addProductField" class="btn btn-submit me-2">Add Product</button>
+                  <div class="col-lg-12 mt-0 mb-3">
+                    <button type="button" @click="addProductToTable" class="btn btn-submit me-2">Add Product</button>
                   </div>
                 </div>
 
                 <div class="row">
                   <div class="table-responsive mt-3 mb-4">
-                    <table class="table">
+                    <table class="table" style="min-height: 100px;">
                       <thead>
                         <tr>
                           <th class="text-center">Product Name</th>
@@ -88,10 +89,24 @@
                         </tr>
                       </thead>
                       <tbody>
+                        <!-- <tr>
+                          <td class="col-lg-3 col-sm-6 col-md-4  ">
+
+                          </td>
+                          <td class="col-lg-3 col-sm-6 col-md-4 "></td>
+
+                          <td class="col-lg-3 col-sm-6 col-md-4 "></td>
+
+                          <td class="d-flex justify-content-center pb-3 pt-3">
+
+                          </td>
+
+                        </tr> -->
+
 
                         <template x-for="(product, index) in saleOrderProducts" :key="index">
                           <tr>
-                            <td class="col-lg-3 col-sm-6 col-md-4  ">
+                            <!-- <td class="col-lg-3 col-sm-6 col-md-4  ">
                               <div class="form-group mb-2 mt-2">
                                 <select class="select classToValidate" :id="'product'+ product.id "
                                   x-model="product.product" :name="'purchase_order_product_product' + product.id">
@@ -100,7 +115,11 @@
                                   <option value="2">2 product</option>
                                 </select>
                               </div>
+                            </td> -->
+                            <td class="col-lg-3 col-sm-6 col-md-4 ">
+                              <span x-text="product.name"></span>
                             </td>
+
                             <td class="col-lg-3 col-sm-6 col-md-4 "><input class="form-control" type="number"
                                 class="classToValidate" x-model="product.quantity"
                                 :name="'sale_order_product_quantity' + product.id"></td>
@@ -109,11 +128,14 @@
                                 class="classToValidate" step="0.01" x-model="product.sub_total"
                                 :name="'sale_order_product_sub_total' + product.id"></td>
 
+
                             <td class="d-flex justify-content-center pb-3 pt-3">
                               <a href="javascript:void(0);" class="delete-set "><img
                                   src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/delete.svg"
                                   alt="svg"></a>
                             </td>
+
+                            <input type="hidden" x-model="product.product">
 
                           </tr>
 
@@ -218,36 +240,6 @@
                   </div>
                 </div>
 
-
-                <!-- <template x-for="(product, index) in saleOrderProducts" :key="index">
-                                        <div>
-                                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
-                                                <div class="form-group">
-                                                    <label for="quantity">Quantity: <span x-text="product.id"></span></label>
-                                                    <div class="input-groupicon">
-                                                        <input type="number" x-model="product.quantity" :name="{product.id}" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
-                                                <div class="form-group">
-                                                    <label for="product">Product:</label>
-                                                    <div class="input-groupicon">
-                                                        <input type="number" x-model="product.product" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
-                                                <div class="form-group">
-                                                    <label for="sub_total">Sub Total:</label>
-                                                    <div class="input-groupicon">
-                                                        <input type="number" step="0.01" x-model="product.sub_total" class="form-control">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </template> -->
-
                 <div class="row">
                   <div class="col-lg-12">
                     <button type="submit" class="btn btn-cancel">Submit</button>
@@ -335,6 +327,7 @@
   });
 
 
+
   function jsonDataForm() {
     return {
       formData: {
@@ -355,13 +348,38 @@
       counter_saleOrderProducts: 0,
       saleOrderProducts: [],
 
-      addProductField() {
+
+
+
+
+      addProductField(params) {
         this.counter_saleOrderProducts = this.counter_saleOrderProducts + 1;
-        this.saleOrderProducts.push({ quantity: null, product: null, sub_total: null, id: this.counter_saleOrderProducts });
+
+        this.saleOrderProducts.push({ quantity: null, product: params.id, sub_total: null, id: this.counter_saleOrderProducts, name: params.name });
         //     console.log(`#product${this.counter_saleOrderProducts}`)
         this.$nextTick(function () {
           $(".select").select2();
         });
+
+      },
+
+      addProductToTable() {
+        const selectField = document.getElementById('mySelect');
+
+        const selectedOption = selectField.options[selectField.selectedIndex];
+        const selectedValue = selectedOption.value;
+
+        const name = selectedOption.dataset.name;
+        const id = selectedOption.dataset.id;
+        const price = selectedOption.dataset.price;
+        const age = selectedOption.dataset.age;
+
+        if (selectedValue) {
+          console.log(name, price, age, id)
+          // Re-select the "choice a Option" value
+          this.addProductField({ name, price, age, id })
+          $('#mySelect').val("").trigger('change');
+        }
 
       },
 
@@ -380,25 +398,25 @@
       submitForm(e) {
         e.preventDefault();
         const $form = $('#jsonForm');
-        if ($form.valid()) {
-          const formData = { ...this.formData };
-          formData.sale_order_product = this.saleOrderProducts;
-          console.log(JSON.stringify(formData));
+        // if ($form.valid()) {
+        const formData = { ...this.formData };
+        formData.sale_order_product = this.saleOrderProducts;
+        console.log(JSON.stringify(formData));
 
-          axios.post('http://127.0.0.1:8000/api/sales/create/', formData, {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          })
-            .then((response) => {
-              console.log('Successfully submitted:', response.data);
-            })
-            .catch((error) => {
-              console.error('Error submitting form:', error);
-            });
+        // axios.post('http://127.0.0.1:8000/api/sales/create/', formData, {
+        //   headers: {
+        //     'Content-Type': 'application/json',
+        //   },
+        // })
+        //   .then((response) => {
+        //     console.log('Successfully submitted:', response.data);
+        //   })
+        //   .catch((error) => {
+        //     console.error('Error submitting form:', error);
+        //   });
 
 
-        }
+        // }
       },
 
 
@@ -414,60 +432,6 @@
 </script>
 
 
-<!-- total_price -->
-<script>
-  $(document).ready(function () {
-    // Get the CSRF token
-    var csrftoken = $('[name="csrfmiddlewaretoken"]').val();
-
-    // Retrieve the necessary elements
-    var quantityInput = $('#id_quantity');
-    var unitPriceInput = $('#id_unit_price');
-    var totalInput = $('#id_total_price');
-    var subtotalInput = $('#id_sub_total');
-
-    var total_price_Input = $('#id_total_price');
-    var discount_price_input = $('#id_total_descount');
-    var subtotalInput = $('#id_sub_total');
-
-
-    var paidamountInput = $('#id_paid');
-    var dueamountInput = $('#id_due');
-
-
-    // Function to send AJAX request and update total
-    function updateTotal() {
-
-      var quantity_val = quantityInput.val();
-      var unitPrice_val = unitPriceInput.val();
-      let discount_price_input_val = discount_price_input.val()
-      var paid_price_val = paidamountInput.val();
-
-      totalInput.val(quantity_val * unitPrice_val);
-
-
-      subtotalInput.val(quantity_val * unitPrice_val - (discount_price_input_val || 0));
-
-      subtotalInput_val = subtotalInput.val()
-
-      dueamountInput.val(subtotalInput_val - paid_price_val)
-
-    }
-    paidamountInput.on('change', updateTotal);
-
-
-    // Attach change event listeners to the quantity and unit price inputs
-    quantityInput.on('change', updateTotal);
-    unitPriceInput.on('change', updateTotal);
-
-    total_price_Input.on('change', updateTotal);
-    discount_price_input.on('change', updateTotal);
-
-    sub_total_Input.on('change', updateTotal);
-
-  });
-
-</script>
 
 
 
