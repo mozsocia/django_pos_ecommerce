@@ -171,5 +171,23 @@ class return_purchase(models.Model):
     def __str__(self):
         return self.name
     
+# class Quotation(models.Model):
+#     biller = models.CharField(max_length=50)
+#     supplier = models.CharField(max_length=50)
+#     customer = models.CharField(max_length=50)
+#     warehouse = models.CharField(max_length=50)
+#     note = models.CharField(max_length=50)
+#     order_tax = models.CharField(max_length=50)
+#     order_discount = models.IntegerField()
+#     shipping_cost = models.IntegerField()
+#     status = models.IntegerField()
+#     class Meta:
+#         verbose_name = 'Quotation'
+#         verbose_name_plural = 'Quotations'
+
+#     def __str__(self):
+#         pass
+     
+    
     
 

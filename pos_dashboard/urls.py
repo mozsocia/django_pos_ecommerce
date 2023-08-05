@@ -39,6 +39,10 @@ urlpatterns = [
     # customer
     path('add_customer', add_customer, name='add_customers'),
     path('customers_list', customers_list, name='customers_list'),
-
+    
+    # quotation
+    path('add_quotation', add_quotation, name='add_quotation'),
+    path('quotation_list', quotation_list, name='quotation_list'),
+    
 
 ]

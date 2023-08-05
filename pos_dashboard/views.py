@@ -443,3 +443,11 @@ def customers_list(request):
     }
     return render(request, 'pos_dashboard/customers/customers_list.html', context)
 
+
+def add_quotation(request):
+    return render(request, 'pos_dashboard/quotation/add_quotation.html')
+
+def quotation_list(request):
+    return render(request, 'pos_dashboard/quotation/quotation_list.html')
+
+
