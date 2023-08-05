@@ -21,14 +21,14 @@
             </div>
             <div class="col-lg-3 col-sm-6 col-12">
               <div class="form-group">
-                <label>Supplier Type</label>
-                <input type="text" name="supplier_type" class="form-control" placeholder="supplier_type">
+                <label>Customer Type</label>
+                <input type="text" name="customer_type" class="form-control" placeholder="customer_type">
               </div>
             </div>
             <div class="col-lg-3 col-sm-6 col-12">
               <div class="form-group">
-                <label>Supplier ID</label>
-                <input type="text" name="supplier_ID" class="form-control" placeholder="supplier_ID">
+                <label>Customer ID</label>
+                <input type="text" name="customer_ID" class="form-control" placeholder="customer_ID">
               </div>
             </div>
             <div class="col-lg-3 col-sm-6 col-12">
@@ -85,7 +85,10 @@
                 <input type="text" name="Transport_name" class="form-control" placeholder="Transport_name">
               </div>
             </div>
-            {{ form.image }}
+            <div class="mb-3">
+              <label for="formFile" class="form-label">Customer image</label>
+              <input class="form-control" type="file" id="formFile">
+            </div>
             <div class="col-lg-12">
               <button type="submit" class="btn btn-submit me-2">Submit</button>
               <a href="javascript:void(0);" class="btn btn-cancel">Cancel</a>
