@@ -17,8 +17,7 @@
           <ul>
             <!-- User Management -->
             <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="users"></i><span>Manage
-                  Users</span><span class="menu-arrow"></span></a>
+              <a href="javascript:void(0);"><i data-feather="users"></i><span>Manage Users</span><span class="menu-arrow"></span></a>
               <ul>
                 <li><a href="{% url 'add_user'%}">New User </a></li>
                 <li><a href="{% url 'user_list'%}">Users List</a></li>
@@ -46,10 +45,7 @@
                     Purchases</a></li>
                 <li><a href="{% url 'purchase_list' %}">Purchases
                     List</a></li>
-                <li><a href="{% url 'new_purchase_return' %}">New
-                    Return</a></li>
-                <li><a href="{% url 'purchase_return_list' %}">Return
-                    List</a></li>
+                
                 <li><a href="{% url 'purchase_due_list' %}">Due
                     Purchases</a></li>
               </ul>
@@ -63,8 +59,6 @@
                 <li><a href="{% url 'sales_product' %}">New Sales</a>
                 </li>
                 <li><a href="{% url 'sales_list' %}">Sales List</a></li>
-                <li><a href="https://dreamspos.dreamguystech.com/html/template/icon-fontawesome.html">Return
-                    Sales</a></li>
                 <li><a href="{% url 'sales_due_list' %}">Due Sales</a>
                 </li>
               </ul>
@@ -134,17 +128,17 @@
             <li class="submenu">
               <a href="javascript:void(0);"><i data-feather="corner-up-left"></i><span>Sales Return</span><span class="menu-arrow"></span></a>
               <ul>
-                <li><a href="{% url 'supplier_add' %}">Add Sales Return</a>
+                <li><a href="{% url 'add_sales_return' %}">Add Sales Return</a>
                 </li>
-                <li><a href="{% url 'supplierlist' %}">Sales Return List</a></li>
+                <li><a href="{% url 'sales_return_list' %}">Sales Return List</a></li>
               </ul>
             </li>
             <li class="submenu">
               <a href="javascript:void(0);"><i data-feather="corner-up-left"></i><span>Purchases Return</span><span class="menu-arrow"></span></a>
               <ul>
-                <li><a href="{% url 'supplier_add' %}">Add Purchases Return</a>
+                <li><a href="{% url 'add_purchase_return' %}">Add Purchases Return</a>
                 </li>
-                <li><a href="{% url 'supplierlist' %}">Purchases Return sList</a></li>
+                <li><a href="{% url 'purchase_return_list' %}">Purchases Return List</a></li>
               </ul>
             </li>
            

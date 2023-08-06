@@ -11,7 +11,7 @@
           <h6>Manage your User</h6>
         </div>
         <div class="page-btn">
-          <a href="https://dreamspos.dreamguystech.com/html/template/adduser.html" class="btn btn-added"><img
+          <a href="{% url 'add_user' %}" class="btn btn-added"><img
               src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/plus.svg" alt="img"
               class="me-2">Add User</a>
         </div>
@@ -95,13 +95,13 @@
             <table class="table  datanew">
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Profile</th>
                   <th>Full Name</th>
                   <th>User Type </th>
                   <th>User name </th>
                   <th>Phone</th>
                   <th>email</th>
-                  <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -136,8 +136,7 @@
                   </td>
                   <td>{{ c.username }} </td>
                   <td>{{ c.phone }} </td>
-                  <td><a href="{{ c.email }}" class="__cf_email__"
-                      data-cfemail="a6d2cec9cbc7d5e6c3dec7cbd6cac388c5c9cb">{{ c.email }}</a></td>
+                  <td>{{ c.email }} </td>
 
                   <td>
                     <a class="me-3" href="https://dreamspos.dreamguystech.com/html/template/edituser.html">

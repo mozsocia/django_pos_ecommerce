@@ -106,7 +106,7 @@
 
                         <template x-for="(product, index) in saleOrderProducts" :key="index">
                           <tr>
-                            <!-- <td class="col-lg-3 col-sm-6 col-md-4  ">
+                            <td class="col-lg-3 col-sm-6 col-md-4  ">
                               <div class="form-group mb-2 mt-2">
                                 <select class="select classToValidate" :id="'product'+ product.id "
                                   x-model="product.product" :name="'purchase_order_product_product' + product.id">
@@ -115,7 +115,7 @@
                                   <option value="2">2 product</option>
                                 </select>
                               </div>
-                            </td> -->
+                            </td>
                             <td class="col-lg-3 col-sm-6 col-md-4 ">
                               <span x-text="product.name"></span>
                             </td>

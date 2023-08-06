@@ -357,9 +357,6 @@ def new_purchase_return(request):
     return render(request, 'pos_dashboard/purchase_product/create_purchase_return.html')
 
 
-def purchase_return_list(request):
-    return render(request, 'pos_dashboard/purchase_product/purchase_return_list.html')
-
 def purchase_due_list(request):
 
     due_purchase_list = Purchase_Product.objects.filter(due__gt=0)
@@ -451,3 +448,14 @@ def quotation_list(request):
     return render(request, 'pos_dashboard/quotation/quotation_list.html')
 
 
+def purchase_return_list(request):
+    return render(request, 'pos_dashboard/purchase_return/p_return_list.html')
+
+def add_purchase_return(request):
+    return render(request, 'pos_dashboard/purchase_return/p_return_add.html')
+
+def add_sales_return(request):
+    return render(request, 'pos_dashboard/sales_return/s_return_add.html')
+
+def sales_return_list(request):
+    return render(request, 'pos_dashboard/sales_return/s_return_list.html')

@@ -44,5 +44,13 @@ urlpatterns = [
     path('add_quotation', add_quotation, name='add_quotation'),
     path('quotation_list', quotation_list, name='quotation_list'),
     
+    # purchase returns
+    path('purchase_return_list', purchase_return_list, name='purchase_return_list'),
+    path('add_purchase_return', add_purchase_return, name='add_purchase_return'),
+    
+    # sales returns
+    path('add_sales_return', add_sales_return, name='add_sales_return'),
+    path('sales_return_list', sales_return_list, name='sales_return_list'),
+    
 
 ]
