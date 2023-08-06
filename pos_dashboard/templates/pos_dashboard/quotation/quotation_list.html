@@ -1,6 +1,8 @@
 {% extends 'pos_dashboard/base.html' %}
 {% block body %}
-<div class="page-wrapper">
+
+<div class="main-wrapper">
+  <div class="page-wrapper">
     <div class="content">
       <div class="page-header">
         <div class="page-title">
@@ -9,7 +11,7 @@
         </div>
         <div class="page-btn">
           <a href="addquotation.html" class="btn btn-added">
-            <img src="{% static 'assets/img/icons/plus.svg' %}" alt="img" class="me-2">
+            <img src="assets/img/icons/plus.svg" alt="img" class="me-2">
             Add Quotation
           </a>
         </div>
@@ -454,4 +456,8 @@
       </div>
     </div>
   </div>
+</div>
+
 {% endblock body %}
+
+

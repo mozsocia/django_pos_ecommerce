@@ -93,7 +93,7 @@
 
             <!-- Unit -->
             <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="tag"></i><span>Unit</span><span
+              <a href="javascript:void(0);"><i data-feather="speaker"></i><span>Unit</span><span
                   class="menu-arrow"></span></a>
               <ul>
                 <li><a href="{% url 'unit_add' %}">Add Unit </a></li>
@@ -101,20 +101,21 @@
               </ul>
             </li>
 
-            <!-- Suppliers -->
+            <!-- Quotation -->
             <li class="submenu">
               <a href="javascript:void(0);"><i data-feather="save"></i><span>Quotation</span><span
                   class="menu-arrow"></span></a>
               <ul>
-                <li><a href="{% url 'supplier_add' %}">Add Quotation</a>
+                <li><a href="{% url 'add_quotation' %}">Add Quotation</a>
                 </li>
-                <li><a href="{% url 'supplierlist' %}">Quotation List</a></li>
+                <li><a href="{% url 'quotation_list' %}">Quotation List</a></li>
               </ul>
             </li>
+
+
             <!-- Suppliers -->
             <li class="submenu">
-              <a href="javascript:void(0);"><i data-feather="users"></i><span>Suppliers</span><span
-                  class="menu-arrow"></span></a>
+              <a href="javascript:void(0);"><i data-feather="users"></i><span>Suppliers</span><span class="menu-arrow"></span></a>
               <ul>
                 <li><a href="{% url 'supplier_add' %}">Add Suppliers</a>
                 </li>
@@ -122,17 +123,31 @@
                     List</a></li>
               </ul>
             </li>
-            <!-- Customers -->
-            <li class="submenu">
+             <!-- Customers -->
+             <li class="submenu">
               <a href="javascript:void(0);"><i data-feather="user"></i><span>Customers</span><span class="menu-arrow"></span></a>
               <ul>
                 <li><a href="{% url 'add_customers' %}">Add Customers</a></li>
                 <li><a href="{% url 'customers_list' %}">Customers List</a></li>
               </ul>
             </li>
-
-            
-
+            <li class="submenu">
+              <a href="javascript:void(0);"><i data-feather="corner-up-left"></i><span>Sales Return</span><span class="menu-arrow"></span></a>
+              <ul>
+                <li><a href="{% url 'supplier_add' %}">Add Sales Return</a>
+                </li>
+                <li><a href="{% url 'supplierlist' %}">Sales Return List</a></li>
+              </ul>
+            </li>
+            <li class="submenu">
+              <a href="javascript:void(0);"><i data-feather="corner-up-left"></i><span>Purchases Return</span><span class="menu-arrow"></span></a>
+              <ul>
+                <li><a href="{% url 'supplier_add' %}">Add Purchases Return</a>
+                </li>
+                <li><a href="{% url 'supplierlist' %}">Purchases Return sList</a></li>
+              </ul>
+            </li>
+           
           </ul>
         </li>
 <!-- 
