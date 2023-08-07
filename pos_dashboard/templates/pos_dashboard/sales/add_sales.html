@@ -11,14 +11,14 @@
           <h6>Add/Update Sales</h6>
         </div>
       </div>
-      <div x-data="jsonDataForm()">
+      <div x-data="initFormData()">
         <form @submit="submitForm" id="jsonForm">
           <div class="card">
             <div class="card-body">
               <div class="row">
 
                 <div class="col-lg-3 col-sm-6 col-12">
-                  <div class="form-group">
+                  <div class="form-group select-validation-error">
                     <label>Customer:</label>
                     <select class="select" id="customer" name="customer" x-model="formData.customer">
                       <option value="">Select a customer</option>
@@ -41,7 +41,7 @@
                   </div>
                 </div>
                 <div class="col-lg-3 col-sm-6 col-12">
-                  <div class="form-group">
+                  <div class="form-group select-validation-error">
                     <label>Status:</label>
                     <select class="select" id="status" name="status" x-model="formData.status">
                       <option value="">Choose Status</option>
@@ -53,7 +53,7 @@
 
 
                 <div class="col-lg-12 col-sm-6 col-12">
-                  <div class="form-group">
+                  <div class="form-group select-validation-error">
                     <label>Products:</label>
                     <select class="select" id="mySelect" name="mySelect" x-ref="selectField">
                       <option value="">Select a product</option>
@@ -61,6 +61,13 @@
                         product
                       </option>
                       <option value="22" data-name="two product" data-id="2" data-price="15" data-age="35">56123 | two
+                        product
+                      </option>
+                      <option value="33" data-name="three product" data-id="3" data-price="60" data-age="23">45648 |
+                        three
+                        product
+                      </option>
+                      <option value="44" data-name="four product" data-id="4" data-price="35" data-age="12">77123 | four
                         product
                       </option>
                     </select>
@@ -205,15 +212,6 @@
                 </div>
 
 
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                  <div class="form-group">
-                    <label for="sale_order_product">Sale Order Products:</label>
-                    <div class="input-groupicon">
-                      <input type="number" id="customer" name="customer" x-model="formData.customer"
-                        class="form-control">
-                    </div>
-                  </div>
-                </div>
 
                 <div class="row">
                   <div class="col-lg-12">
@@ -244,7 +242,7 @@
 <script>
 
 
-  function jsonDataForm() {
+  function initFormData() {
     return {
       formData: {
         phone: null,
@@ -272,10 +270,10 @@
         this.counter_saleOrderProducts = this.counter_saleOrderProducts + 1;
 
         this.saleOrderProducts.push({ quantity: null, product: params.id, sub_total: null, id: this.counter_saleOrderProducts, name: params.name });
-        //     console.log(`#product${this.counter_saleOrderProducts}`)
-        this.$nextTick(function () {
-          $(".select").select2();
-        });
+
+        // this.$nextTick(function () {
+        //   $(".select").select2();
+        // });
 
       },
 
@@ -295,6 +293,8 @@
           // Re-select the "choice a Option" value
           this.addProductField({ name, price, age, id })
           $('#mySelect').val("").trigger('change');
+        } else {
+          alert('Please select a product')
         }
 
       },
