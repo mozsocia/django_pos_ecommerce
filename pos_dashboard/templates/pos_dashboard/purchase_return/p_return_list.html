@@ -1,4 +1,6 @@
+
 {% extends 'pos_dashboard/base.html' %}
+{% load static %}
 {% block body %}
 
 <div class="main-wrapper">
@@ -7,13 +9,11 @@
       <div class="page-header">
         <div class="page-title">
           <h4>Purchase Return List</h4>
-          <h6>Manage your Returns</h6>
+          <h6>Manage your User</h6>
         </div>
         <div class="page-btn">
-          <a href="https://dreamspos.dreamguystech.com/html/template/createpurchasereturn.html" class="btn btn-added">
-            <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/plus.svg" alt="img"
-              class="me-2">Add Purchase Return
-          </a>
+          <a href="#" class="btn btn-added"><img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/plus.svg" alt="img"
+              class="me-2">Add Purchase Return </a>
         </div>
       </div>
 
@@ -21,17 +21,12 @@
         <div class="card-body">
           <div class="table-top">
             <div class="search-set">
-              <div class="search-path">
-                <a class="btn btn-filter" id="filter_search">
-                  <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/filter.svg" alt="img">
-                  <span><img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/closes.svg"
-                      alt="img"></span>
-                </a>
-              </div>
+              
               <div class="search-input">
-                <a class="btn btn-searchset"><img
-                    src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/search-white.svg"
-                    alt="img"></a>
+                <a class="btn btn-searchset">
+                  <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/search-white.svg"
+                    alt="img">
+                </a>
               </div>
             </div>
             <div class="wordset">
@@ -58,27 +53,24 @@
               <div class="row">
                 <div class="col-lg-2 col-sm-6 col-12">
                   <div class="form-group">
-                    <input type="text" class="datetimepicker cal-icon" placeholder="Choose Date">
+                    <input type="text" placeholder="Enter User Name">
                   </div>
                 </div>
                 <div class="col-lg-2 col-sm-6 col-12">
                   <div class="form-group">
-                    <input type="text" placeholder="Enter Reference">
+                    <input type="text" placeholder="Enter Phone">
+                  </div>
+                </div>
+                <div class="col-lg-2 col-sm-6 col-12">
+                  <div class="form-group">
+                    <input type="text" placeholder="Enter Email">
                   </div>
                 </div>
                 <div class="col-lg-2 col-sm-6 col-12">
                   <div class="form-group">
                     <select class="select">
-                      <option>Choose Supplier</option>
-                      <option>Supplier</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="col-lg-2 col-sm-6 col-12">
-                  <div class="form-group">
-                    <select class="select">
-                      <option>Choose Status</option>
-                      <option>Inprogress</option>
+                      <option>Disable</option>
+                      <option>Enable</option>
                     </select>
                   </div>
                 </div>
