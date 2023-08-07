@@ -112,7 +112,7 @@ class CustomersAddForm(forms.ModelForm):
 
     class Meta:
         model = Customer
-        fields = ["name", "customer_ID", "address", "phone", "email", "start_date", "image","Created_at","Updated_at"]        
+        fields = ["name", "customer_ID", "address", "phone", "email", "image"]        
         
         
 
