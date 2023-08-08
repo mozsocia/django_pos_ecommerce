@@ -19,20 +19,25 @@
 
                 <div class="col-lg-3 col-sm-6 col-12">
                   <div class="form-group select-validation-error">
-                    <label>Customer Name</label>
+                    <label>Select Custmer</label>
                     <div class="row">
                       <div class="col-lg-10 col-sm-10 col-10">
                         <select class="select" id="customer" name="customer" x-model="formData.customer">
                           <option>Select Customer</option>
-                          <option>Customer</option>
+                          <option value="1">123213 | one Customer</option>
+                          <option value="2">45645 | two rakim</option>
+                          <option value="3">567567 | three rokon</option>
                         </select>
                       </div>
                       <div class="col-lg-2 col-sm-2 col-2 ps-0">
                         <div>
                           <a href="{% url 'add_customers'%}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus-square" viewBox="0 0 16 16">
-                              <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
-                              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                              class="bi bi-plus-square" viewBox="0 0 16 16">
+                              <path
+                                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                              <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
                             </svg>
                           </a>
                         </div>
@@ -42,8 +47,8 @@
                 </div>
                 <div class="col-lg-3 col-sm-6 col-md-4 col-12">
                   <div class="form-group">
-                    <label>Phone number</label>
-                    <input type="text" name="phone" x-model="formData.phone">
+                    <label>Customer name</label>
+                    <input type="text" name="phone" x-model="formData.customer_name">
                   </div>
                 </div>
 
@@ -138,6 +143,13 @@
 
                       </tbody>
                     </table>
+                  </div>
+                </div>
+
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                  <div class="form-group">
+                    <label>Phone number</label>
+                    <input type="text" name="phone" x-model="formData.phone">
                   </div>
                 </div>
 
@@ -271,6 +283,7 @@
         due: null,
         note: null,
         customer: null,
+        customer_name: null,
       },
       counter_saleOrderProducts: 0,
       saleOrderProducts: [],
