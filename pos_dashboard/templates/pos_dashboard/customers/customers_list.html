@@ -4,8 +4,7 @@
         <div class="content">
             <div class="page-header">
                 <div class="page-title">
-                    <h4>Supplier List</h4>
-                    <h6>Manage your supplier</h6>
+                    <h4>Custmer List</h4>
                 </div>
                 <div class="page-btn">
                     <a href="{% url 'add_product' %}" class="btn btn-added">
@@ -122,12 +121,6 @@
                         <table class="table datanew">
                             <thead>
                                 <tr>
-                                    <th>
-                                        <!-- <label class="checkboxs">
-<input type="checkbox" id="select-all">
-<span class="checkmarks"></span>
-</label> -->
-                                    </th>
                                     <th>Image</th>
                                     <th>Supplier Name</th>
                                     <th>Supplier Type</th>
@@ -141,12 +134,7 @@
                             <tbody>
                                 {% for p in supplier_list %}
                                 <tr>
-                                    <td>
-                                        <!-- <label class="checkboxs">
-                                        <input type="checkbox">
-                                        <span class="checkmarks"></span>
-                                        </label> -->
-                                    </td>
+                                   
                                     <td class="productimgname">
                                         <img src="{{ p.image.url }}" alt="product" width="30px">
                                     </td>
