@@ -1,9 +1,10 @@
-from django.urls import path
+from django.urls import path, include
 from . views import *
 
 urlpatterns = [
 
     path('home/', index, name='homee'),
+    path('pos/', include('pos_dashboard.api.urls')),
     path('adduser/', user_add, name='add_user'),
     path('userlist/', user_list, name='user_list'),
     path('add-product', ProductCreate.as_view(), name='add_product'),
