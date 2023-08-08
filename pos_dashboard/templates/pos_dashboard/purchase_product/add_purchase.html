@@ -11,201 +11,38 @@
           <h6>Add/Update Purchase</h6>
         </div>
       </div>
-      <!-- <form action="{% url 'purchase_product' %}" method="POST" enctype="multipart/form-data">
-                <div class="card">
-                    <div class="card-body">
-                        {% csrf_token %}
-                        <div class="row">
-                            <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Supplier Name</label>
-                                    <select class="select" name="supplier_name" >
-                                    <option value="" selected="">Select Supplier--</option>
-                                    {% for x in supplier %}
-                                    <option value="{{ x.pk }}">{{ x.name }}</option>
-                                    {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Phone number</label>
-                                    <div class="input-groupicon">
-                                        <input type="number" name="phone" class="form-control" placeholder="Phone Number">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Start Date</label>
-                                    <div class="input-groupicon">
-                                        <input type="date" name="billing_date" class="form-control" placeholder="Start Date">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Product Name</label>
-                                    <div class="input-groupicon">
-                                        <input type="text" name="product_name" class="form-control" placeholder="Product Name">
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Product Code</label>
-                                    <div class="input-groupicon">
-                                        <input type="text" name="product_code" class="form-control" placeholder="Product Code">
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Category Select</label>
-
-                                    <select class="select" name="category" >
-                                    <option value="" selected="">Select category--</option>
-                                    {% for x in category %}
-                                    <option value="{{ x.pk }}">{{ x.category_name }}</option>
-                                    {% endfor %}
-                                    </select>
-
-                                </div>
-                            </div>
-
-
-                            <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Brand Select</label>
-                                    <select class="select" name="brand" >
-                                    <option value="" selected="">Select Brand--</option>
-                                    {% for x in brand %}
-                                    <option value="{{ x.pk }}">{{ x.name }}</option>
-                                    {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Quantity</label>
-                                    <div class="input-groupicon">
-                                        
-                                        <input type="number" id="id_quantity" name="quantity" class="form-control" placeholder="Quantity">
-
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Unit</label>
-                                    <select class="select" name="unit" >
-                                    <option value="" selected="">Select Unit--</option>
-                                    {% for x in unit %}
-                                    <option value="{{ x.pk }}">{{ x.name }}</option>
-                                    {% endfor %}
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-lg-2 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Unit Price</label>
-                                    <div class="input-groupicon">
-                                        <input type="number" id="id_unit_price" name="unit_price" class="form-control" placeholder="Unit Price">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Buy Price</label>
-                                    <div class="input-groupicon">
-                                        <input type="number" name="buy_price" class="form-control" placeholder="Buy Price">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Sale Price</label>
-                                    <div class="input-groupicon">
-                                        <input type="number" name="sale_price" class="form-control" placeholder="Sales Price">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                                <div class="form-group">
-                                    <label>Whole Sale Price</label>
-                                    <div class="input-groupicon">
-                                        <input type="number" name="whole_sale_price" class="form-control" placeholder="Whole Sales Price">
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div class="row">
-                            <div class="col-lg-12 float-md-right">
-                                <div class="total-order">
-                                    <ul>
-                                        <li>
-                                            <h4>Total Price</h4>
-                                        <input type="number" name="total_price" readonly="True" id="id_total_price" class="form-control" placeholder="Total Price">
-                                        </li>
-                                        <li>
-                                            <h4>Discount % </h4>
-                                        <input type="number" name="total_descount" id="id_total_descount" class="form-control" placeholder="Discount Price %">
-                                        </li>
-                                        <li>
-                                            <h4>Sub Total</h4>
-                                        <input type="number" name="sub_total" id="id_sub_total" class="form-control" placeholder="Sub Total Price">
-                                        </li>
-                                        <li class="total">
-                                            <h4>Paid</h4>
-                                        <input type="number" name="paid" id="id_paid" class="form-control" placeholder="Paid Price">
-                                        </li>
-
-                                        <li class="total">
-                                            <h4>Due</h4>
-                                        <input type="number" name="due" id="id_due" class="form-control" placeholder="Due Price">
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            {{ form.image }}
-                           
-                            <div class="col-lg-12">
-                                <button type="submit" class="btn btn-submit me-2">Submit</button>
-                                <a href="#"class="btn btn-cancel">Cancel</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </form> -->
       <div x-data="jsonDataForm()">
         <form @submit="submitForm" id="jsonForm">
           <div class="card">
             <div class="card-body">
               <div class="row">
 
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
-                  <div class="form-group">
-                    <label for="supplier">Supplier:</label>
-                    <select class="form-select" name="supplier" id="supplier">
-                      <option value="1">Supplier 1</option>
-                      <option value="2">Supplier 2</option>
-                      <option value="3">Supplier 3</option>
-                    </select>
+                <div class="col-lg-3 col-sm-6 col-12">
+                  <div class="form-group select-validation-error">
+                    <label>Select Supplier</label>
+                    <div class="row">
+                      <div class="col-lg-10 col-sm-10 col-10">
+                        <select class="select" id="supplier" name="supplier" x-model="formData.supplier">
+                          <option>Select Supplier</option>
+                          <option value="1">123213 | one Customer</option>
+                          <option value="2">45645 | two rakim</option>
+                          <option value="3">567567 | three rokon</option>
+                        </select>
+                      </div>
+                      <div class="col-lg-2 col-sm-2 col-2 ps-0">
+                        <div>
+                          <a href="{% url 'supplier_add'%}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                              class="bi bi-plus-square" viewBox="0 0 16 16">
+                              <path
+                                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+                              <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                          </a>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
@@ -273,11 +110,11 @@
                   </div>
                 </div>
 
-                <div class="col-lg-12 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-12 col-sm-6 col-12">
                   <div class="form-group">
                     <label for="note">Note:</label>
                     <div class="input-groupicon">
-                      <textarea id="note" name="note" x-model="formData.note" class="form-control"></textarea>
+                      <input type="text" step="0.01" id="note" name="note" x-model="formData.note" class="form-control">
                     </div>
                   </div>
                 </div>
