@@ -18,29 +18,25 @@
               <div class="row">
 
                
-                <div class="col-lg-3 col-sm-6 col-12">
-                  <div class="form-group select-validation-error">
-                    <label>Customer Name</label>
-                    <div class="row">
-                      <div class="col-lg-10 col-sm-10 col-10">
-                        <select class="select" id="customer" name="customer" x-model="formData.customer">
-                          <option>Select Customer</option>
-                          <option>Customer</option>
-                        </select>
-                      </div>
-                      
-                    </div>
+                <div class="col-lg-2 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label>Custmer</label>
+                    <select class="select">
+                      <option>Choose Custmer</option>
+                      <option>Completed</option>
+                      <option>Inprogress</option>
+                    </select>
                   </div>
                 </div>
                 
 
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-2 col-sm-6 col-md-4 col-12">
                   <div class="form-group">
                     <label for="date">Quotation Date:</label>
                     <input type="date" id="date" name="date" x-model="formData.date" class="form-control">
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-2 col-sm-6 col-md-4 col-12">
                   <div class="form-group">
                     <label for="payment_status">Reference No.</label>
                     <div class="input-groupicon">
@@ -49,35 +45,65 @@
                     </div>
                   </div>
                 </div>
-
-
-                <div class="col-lg-12 col-sm-6 col-12">
-                  <div class="form-group select-validation-error">
-                    <label>Products:</label>
-                    <select class="select" id="mySelect" name="mySelect" x-ref="selectField">
-                      <option value="">Select a product</option>
-                      <option value="11" data-name="one product" data-id="1" data-price="10" data-age="25">23948 | one
-                        product
-                      </option>
-                      <option value="22" data-name="two product" data-id="2" data-price="15" data-age="35">56123 | two
-                        product
-                      </option>
-                      <option value="33" data-name="three product" data-id="3" data-price="60" data-age="23">45648 |
-                        three
-                        product
-                      </option>
-                      <option value="44" data-name="four product" data-id="4" data-price="35" data-age="12">77123 | four
-                        product
-                      </option>
+                <div class="col-lg-2 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label>Status</label>
+                    <select class="select">
+                      <option>Choose Status</option>
+                      <option>Completed</option>
+                      <option>Inprogress</option>
                     </select>
                   </div>
                 </div>
-
-                <div class="row">
-                  <div class="col-lg-12 mt-0 mb-3">
-                    <button type="button" @click="addProductToTable" class="btn btn-submit me-2">Add Product</button>
+                <div class="col-lg-2 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label>Discount</label>
+                    <input type="text">
                   </div>
                 </div>
+                <div class="col-lg-2 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label>Shipping</label>
+                    <input type="text">
+                  </div>
+                </div>
+               
+
+                  
+                
+
+                <div class="col-lg-10 col-sm-6 col-12">
+                  <div class="form-group select-validation-error">
+                    <label>Select Product </label>
+                    <div class="row">
+                      <div class="col-lg-10 col-sm-6 col-12">
+                        <select class="select" id="mySelect" name="mySelect" x-ref="selectField">
+                          <option value="">Select a product</option>
+                          <option value="11" data-name="one product" data-id="1" data-price="10" data-age="25">23948 | one
+                            product
+                          </option>
+                          <option value="22" data-name="two product" data-id="2" data-price="15" data-age="35">56123 | two
+                            product
+                          </option>
+                          <option value="33" data-name="three product" data-id="3" data-price="60" data-age="23">45648 |
+                            three
+                            product
+                          </option>
+                          <option value="44" data-name="four product" data-id="4" data-price="35" data-age="12">77123 | four
+                            product
+                          </option>
+                        </select>
+                      </div>
+                      <div class="col-lg-2 col-sm-2 col-2 ps-0">
+                        <div class="col-lg-12 mt-0 mb-3">
+                          <button type="button" @click="addProductToTable" class="btn btn-submit me-2">Add Product</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                
 
                 <div class="row">
                   <div class="table-responsive mt-3 mb-4">
@@ -97,15 +123,15 @@
                         <template x-for="(product, index) in saleOrderProducts" :key="index">
                           <tr>
 
-                            <td class="col-lg-3 col-sm-6 col-md-4 ">
+                            <td class="col-lg-2 col-sm-6 col-md-4 ">
                               <span x-text="product.name"></span>
                             </td>
 
-                            <td class="col-lg-3 col-sm-6 col-md-4 "><input class="form-control" type="number"
+                            <td class="col-lg-2 col-sm-6 col-md-4 "><input class="form-control" type="number"
                                 class="classToValidate" x-model="product.quantity"
                                 :name="'sale_order_product_quantity' + product.id"></td>
 
-                            <td class="col-lg-3 col-sm-6 col-md-4 "><input class="form-control" type="number"
+                            <td class="col-lg-2 col-sm-6 col-md-4 "><input class="form-control" type="number"
                                 class="classToValidate" step="0.01" x-model="product.sub_total"
                                 :name="'sale_order_product_sub_total' + product.id"></td>
 
@@ -127,44 +153,22 @@
                   </div>
                 </div>
 
+                <div class="col-lg-3 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label>Order Tax</label>
+                    <input type="text">
+                  </div>
+                </div>
+                <div class="col-lg-9 col-sm-6 col-12">
+                  <div class="form-group">
+                    <label for="note">Note:</label>
+                    <div class="input-groupicon">
+                      <input type="text" step="0.01" id="note" name="note" x-model="formData.note" class="form-control">
+                    </div>
+                  </div>
+                </div>
 
-                <div class="row">
-                  <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="form-group">
-                      <label>Order Tax</label>
-                      <input type="text">
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="form-group">
-                      <label>Discount</label>
-                      <input type="text">
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="form-group">
-                      <label>Shipping</label>
-                      <input type="text">
-                    </div>
-                  </div>
-                  <div class="col-lg-3 col-sm-6 col-12">
-                    <div class="form-group">
-                      <label>Status</label>
-                      <select class="select">
-                        <option>Choose Status</option>
-                        <option>Completed</option>
-                        <option>Inprogress</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="col-lg-12 col-sm-6 col-12">
-                    <div class="form-group">
-                      <label for="note">Note:</label>
-                      <div class="input-groupicon">
-                        <input type="text" step="0.01" id="note" name="note" x-model="formData.note" class="form-control">
-                      </div>
-                    </div>
-                  </div>
+                 
                   <div class="row">
                     <div class="col-lg-6">
                         <div class="total-order w-200 max-widthauto m-auto mb-4 border border-dark">
