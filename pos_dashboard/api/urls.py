@@ -1,5 +1,5 @@
 from django.urls import path
-from pos_dashboard.api.views import *
+from ..api.views import *
 
 urlpatterns = [
     
