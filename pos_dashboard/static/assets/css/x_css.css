@@ -187,11 +187,19 @@
 
 .form-group label {
   margin-bottom: 0px;
-  color: #212b36;
-  font-weight: 500;
-  font-size: 14px;
+}
+
+label.error {
+  color: red;
+  font-weight: 400;
+  font-size: 12px;
   display: block;
-  font-weight: bold;
+  margin-top: 0px;
+}
+
+.form-group.select-validation-error label.error {
+  position: absolute;
+  top: 46px;
 }
 
 .form-group input[type="text"],
@@ -222,8 +230,8 @@
 .select2-container--default
   .select2-selection--single
   .select2-selection__arrow {
-  height: 25px;
-  right: 6px;
+  height: 22px;
+  right: 2px;
 }
 .select2-container--default .select2-selection--single {
   border: 1px solid #6a6868;
@@ -242,4 +250,31 @@
   padding: 1px 4px;
   user-select: none;
   -webkit-user-select: none;
+}
+table.dataTable > thead .sorting:before,
+table.dataTable > thead .sorting_asc:before,
+table.dataTable > thead .sorting_desc:before,
+table.dataTable > thead .sorting_asc_disabled:before,
+table.dataTable > thead .sorting_desc_disabled:before {
+  right: 0.5em;
+  content: "\f106";
+  font-family: "font awesome 5 free";
+  top: 0px;
+  color: #babfc7;
+  font-size: 12px;
+  opacity: 1;
+}
+
+table.dataTable > thead .sorting:after,
+table.dataTable > thead .sorting_asc:after,
+table.dataTable > thead .sorting_desc:after,
+table.dataTable > thead .sorting_asc_disabled:after,
+table.dataTable > thead .sorting_desc_disabled:after {
+  right: 0.5em;
+  content: "\f107";
+  font-family: "font awesome 5 free";
+  top: 9px;
+  color: #babfc7;
+  font-size: 12px;
+  opacity: 1;
 }

@@ -1,8 +1,6 @@
 from django.urls import path
 from .views import *
 
-
-
 urlpatterns =[
     path('', lambda request: redirect('homee'), name='home'),
     # path('',ProductView.as_view(), name='home'),
