@@ -17,7 +17,7 @@ urlpatterns = [
     path('purchase_list/', purchase_product_list, name='purchase_list'),
     path('purchase-due-list/', purchase_due_list, name='purchase_due_list'),
  
-
+ 
     #Sales product
     path('sales/product/', sales_product, name='sales_product'),
     path('sales-list/', sales_list, name='sales_list'),

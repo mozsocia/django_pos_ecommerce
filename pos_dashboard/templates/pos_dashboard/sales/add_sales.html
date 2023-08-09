@@ -15,9 +15,9 @@
         <form @submit="submitForm" id="jsonForm">
           <div class="card">
             <div class="card-body">
-              <div class="row">
+              <div class="row row-sp">
 
-                <div class="col-lg-3 col-sm-6 col-12">
+                <div class="col-lg-3 col-sm-6 col-12 col-sp">
                   <div class="form-group select-validation-error">
                     <label>Select Custmer</label>
                     <div class="row">
@@ -32,7 +32,7 @@
                       <div class="col-lg-2 col-sm-2 col-2 ps-0">
                         <div>
                           <a href="{% url 'add_customers'%}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                            <svg xmlns="http://www.w3.org/2000/svg" height="25" fill="currentColor"
                               class="bi bi-plus-square" viewBox="0 0 16 16">
                               <path
                                 d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
@@ -45,20 +45,20 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label>Customer name</label>
                     <input type="text" name="phone" x-model="formData.customer_name">
                   </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label for="date">Date:</label>
                     <input type="date" id="date" name="date" x-model="formData.date" class="form-control">
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-12">
+                <div class="col-lg-3 col-sm-6 col-12 col-sp">
                   <div class="form-group select-validation-error">
                     <label>Status:</label>
                     <select class="select" id="status" name="status" x-model="formData.status">
@@ -70,7 +70,7 @@
                 </div>
 
 
-                <div class="col-lg-12 col-sm-6 col-12">
+                <div class="col-lg-12 col-sm-6 col-12 col-sp">
                   <div class="form-group select-validation-error">
                     <label>Products:</label>
                     <select class="select" id="mySelect" name="mySelect" x-ref="selectField">
@@ -92,13 +92,14 @@
                   </div>
                 </div>
 
-                <div class="row">
+                <div class="row row-sp">
                   <div class="col-lg-12 mt-0 mb-3">
-                    <button type="button" @click="addProductToTable" class="btn btn-submit me-2">Add Product</button>
+                    <button type="button" @click="addProductToTable" class="btn btn-sp btn btn-sp-submit me-2">Add
+                      Product</button>
                   </div>
                 </div>
 
-                <div class="row">
+                <div class="row row-sp">
                   <div class="table-responsive mt-3 mb-4">
                     <table class="table" style="min-height: 100px;">
                       <thead>
@@ -146,14 +147,14 @@
                   </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label>Phone number</label>
                     <input type="text" name="phone" x-model="formData.phone">
                   </div>
                 </div>
 
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label for="payment_status">Payment Status:</label>
                     <div class="input-groupicon">
@@ -162,7 +163,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label for="total_quantity">Total Quantity:</label>
                     <div class="input-groupicon">
@@ -171,7 +172,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label for="total">Total:</label>
                     <div class="input-groupicon">
@@ -180,7 +181,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label for="discount">Discount:</label>
                     <div class="input-groupicon">
@@ -189,7 +190,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-12 col-sm-6 col-12">
+                <div class="col-lg-12 col-sm-6 col-12 col-sp">
                   <div class="form-group">
                     <label for="note">Note:</label>
                     <div class="input-groupicon">
@@ -199,7 +200,7 @@
                 </div>
 
 
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label for="shipping_cost">Shipping Cost:</label>
 
@@ -209,7 +210,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label for="grand_total">Grand Total:</label>
                     <div class="input-groupicon">
@@ -218,7 +219,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label for="paid">Paid:</label>
                     <div class="input-groupicon">
@@ -227,7 +228,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 col-md-4 col-12">
+                <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">
                     <label for="due">Due:</label>
                     <div class="input-groupicon">
@@ -238,9 +239,9 @@
 
 
 
-                <div class="row">
+                <div class="row row-sp">
                   <div class="col-lg-12">
-                    <button type="submit" class="btn btn-cancel">Submit</button>
+                    <button type="submit" class="btn btn-sp btn btn-sp-cancel">Submit</button>
 
                   </div>
                 </div>

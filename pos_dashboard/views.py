@@ -25,7 +25,7 @@ from django.http import JsonResponse
 
 # Create your views here.
 
-@login_required
+# @login_required
 def index(request):
     return render(request, 'pos_dashboard/index.html')
 
