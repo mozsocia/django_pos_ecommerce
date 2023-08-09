@@ -181,7 +181,7 @@
   font-size: 14px;
   font-weight: 500;
   color: #091947;
-  padding: 5px 8px;
+  padding: 1px 8px;
   border-radius: 2px;
 }
 
@@ -210,7 +210,7 @@ label.error {
   font-size: 14px;
   font-weight: 500;
   color: #213241;
-  padding: 3px 5px;
+  padding: 0px 5px;
   border-radius: 2px;
 }
 
@@ -277,4 +277,12 @@ table.dataTable > thead .sorting_desc_disabled:after {
   color: #babfc7;
   font-size: 12px;
   opacity: 1;
+}
+
+.page-link {
+  padding: 3px 5px;
+}
+
+.pagination li.active a.page-link {
+  border-radius: 2px;
 }

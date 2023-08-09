@@ -70,7 +70,7 @@
 
                 <br>
                 <div class="col-lg-12 col-sm-6 col-12 col-sp">
-                  <div class="row mt-2 row-sp justify-content-start">
+                  <div class="row mt-3 row-sp justify-content-start">
 
                     <div class="col-6 col-sp">
 
@@ -111,7 +111,9 @@
 
 
                 <div class="row row-sp">
-                  <div class="table-responsive mt-3 mb-4">
+
+                  <div class="table-responsive mt-1 mb-4">
+                    <label class="fw-bold">Oder Table</label>
                     <table class="table product-table">
                       <thead>
                         <tr>
@@ -123,10 +125,14 @@
                       </thead>
                       <tbody>
 
+                        <tr class="odd" x-show="saleOrderProducts.length < 1">
+                          <td valign="top" colspan="8" class="dataTables_empty">No data available in table</td>
+                        </tr>
 
 
-                        <template x-for="(product, index) in saleOrderProducts" :key="index">
-                          <tr>
+
+                        <template x-for="(product, index) in saleOrderProducts">
+                          <tr :key="index">
 
                             <td class="col-lg-3 col-sm-6 col-md-4 ">
                               <span x-text="product.name"></span>
@@ -141,9 +147,9 @@
                                 :name="'sale_order_product_sub_total' + product.id"></td>
 
 
-                            <td class="d-flex justify-content-center">
-                              <a href="javascript:void(0);" class="delete-set "><img
-                                  src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/delete.svg"
+                            <td class="col-lg-3 col-sm-6 col-md-4 center">
+                              <a x-on:click.prevent="deleteProduct(product.id)">
+                                <img src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/delete.svg"
                                   alt="svg"></a>
                             </td>
 
@@ -207,7 +213,7 @@
                   <div class="form-group">
                     <label for="note">Note:</label>
                     <div class="input-groupicon">
-                      <input type="text" step="0.01" id="note" name="note" x-model="formData.note" class="form-control">
+                      <input type="text" id="note" name="note" x-model="formData.note" class="form-control">
                     </div>
                   </div>
                 </div>
@@ -304,7 +310,16 @@
 
 
 
+      deleteProduct(productId) {
+        // Find the index of the product with the given productId
+        const index = this.saleOrderProducts.findIndex(product => product.id === productId);
 
+        if (index !== -1) {
+          // Remove the product from the array using the index
+          this.saleOrderProducts.splice(index, 1);
+        }
+        console.log(this.saleOrderProducts)
+      },
 
       addProductField(params) {
         this.counter_saleOrderProducts = this.counter_saleOrderProducts + 1;
@@ -357,7 +372,7 @@
         // if ($form.valid()) {
         const formData = { ...this.formData };
         formData.sale_order_product = this.saleOrderProducts;
-        console.log(JSON.stringify(formData));
+        console.log(formData);
 
         // axios.post('http://127.0.0.1:8000/api/sales/create/', formData, {
         //   headers: {

@@ -345,3 +345,9 @@ hr {
   width: 95% !important;
   margin: 0 auto !important;
 }
+td.dataTables_empty {
+  text-align: center;
+}
+.center {
+  text-align: center;
+}
