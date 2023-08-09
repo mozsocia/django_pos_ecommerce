@@ -8,7 +8,6 @@
       <div class="page-header">
         <div class="page-title">
           <h4>Sales Add</h4>
-          <h6>Add/Update Sales</h6>
         </div>
       </div>
       <div x-data="initFormData()">
@@ -20,8 +19,8 @@
                 <div class="col-lg-3 col-sm-6 col-12 col-sp">
                   <div class="form-group select-validation-error">
                     <label>Select Custmer</label>
-                    <div class="row">
-                      <div class="col-lg-10 col-sm-10 col-10">
+                    <div class="row row-sp">
+                      <div class="col-lg-10 col-sm-10 col-10 col-sp">
                         <select class="select" id="customer" name="customer" x-model="formData.customer">
                           <option>Select Customer</option>
                           <option value="1">123213 | one Customer</option>
@@ -29,7 +28,7 @@
                           <option value="3">567567 | three rokon</option>
                         </select>
                       </div>
-                      <div class="col-lg-2 col-sm-2 col-2 ps-0">
+                      <div class="col-lg-2 col-sm-2 col-2 ps-0 col-sp">
                         <div>
                           <a href="{% url 'add_customers'%}">
                             <svg xmlns="http://www.w3.org/2000/svg" height="25" fill="currentColor"
@@ -69,39 +68,51 @@
                   </div>
                 </div>
 
-
+                <br>
                 <div class="col-lg-12 col-sm-6 col-12 col-sp">
-                  <div class="form-group select-validation-error">
-                    <label>Products:</label>
-                    <select class="select" id="mySelect" name="mySelect" x-ref="selectField">
-                      <option value="">Select a product</option>
-                      <option value="11" data-name="one product" data-id="1" data-price="10" data-age="25">23948 | one
-                        product
-                      </option>
-                      <option value="22" data-name="two product" data-id="2" data-price="15" data-age="35">56123 | two
-                        product
-                      </option>
-                      <option value="33" data-name="three product" data-id="3" data-price="60" data-age="23">45648 |
-                        three
-                        product
-                      </option>
-                      <option value="44" data-name="four product" data-id="4" data-price="35" data-age="12">77123 | four
-                        product
-                      </option>
-                    </select>
+                  <div class="row mt-2 row-sp justify-content-start">
+
+                    <div class="col-6 col-sp">
+
+                      <div class="form-group select-validation-error ">
+                        <label>Products:</label>
+                        <select class="select" id="mySelect" name="mySelect" x-ref="selectField">
+                          <option value="">Select a product</option>
+                          <option value="11" data-name="one product" data-id="1" data-price="10" data-age="25">23948 |
+                            one
+                            product
+                          </option>
+                          <option value="22" data-name="two product" data-id="2" data-price="15" data-age="35">56123 |
+                            two
+                            product
+                          </option>
+                          <option value="33" data-name="three product" data-id="3" data-price="60" data-age="23">45648 |
+                            three
+                            product
+                          </option>
+                          <option value="44" data-name="four product" data-id="4" data-price="35" data-age="12">77123 |
+                            four
+                            product
+                          </option>
+                        </select>
+                      </div>
+                    </div>
+
+                    <div class="col-lg-2 col-sp ">
+                      <button type="button" @click="addProductToTable"
+                        class="mt-3 btn btn-sp btn btn-sp-submit me-2">Add
+                        Product</button>
+
+                    </div>
+
                   </div>
+
                 </div>
 
-                <div class="row row-sp">
-                  <div class="col-lg-12 mt-0 mb-3">
-                    <button type="button" @click="addProductToTable" class="btn btn-sp btn btn-sp-submit me-2">Add
-                      Product</button>
-                  </div>
-                </div>
 
                 <div class="row row-sp">
                   <div class="table-responsive mt-3 mb-4">
-                    <table class="table" style="min-height: 100px;">
+                    <table class="table product-table">
                       <thead>
                         <tr>
                           <th class="text-center">Product Name</th>
@@ -130,7 +141,7 @@
                                 :name="'sale_order_product_sub_total' + product.id"></td>
 
 
-                            <td class="d-flex justify-content-center pb-3 pt-3">
+                            <td class="d-flex justify-content-center">
                               <a href="javascript:void(0);" class="delete-set "><img
                                   src="https://dreamspos.dreamguystech.com/html/template/assets/img/icons/delete.svg"
                                   alt="svg"></a>
@@ -146,6 +157,8 @@
                     </table>
                   </div>
                 </div>
+
+                <br>
 
                 <div class="col-lg-3 col-sm-6 col-md-4 col-12 col-sp">
                   <div class="form-group">

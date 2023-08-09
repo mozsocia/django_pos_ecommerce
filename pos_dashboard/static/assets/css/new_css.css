@@ -5,6 +5,21 @@ body {
   line-height: 1.5;
   background-color: #f3f3f5;
 }
+
+@media (min-width: 992px) {
+  .header .header-left {
+    background: #1b2850 !important;
+    height: 50px;
+    width: 240px;
+  }
+  .mini-sidebar .header-left {
+    width: 80px;
+  }
+}
+
+.page-header {
+  margin-bottom: 5px;
+}
 @media (min-width: 992px) {
   .page-wrapper {
     margin: 0 0 0 240px;
@@ -34,6 +49,22 @@ body {
 
 .sidebar .sidebar-menu > ul > li {
   margin-bottom: 0px;
+}
+
+.sidebar {
+  width: 240px;
+  top: 50px;
+}
+
+.sidebar .slimScrollDiv {
+  width: 240px !important;
+}
+
+.sidebar .sidebar-menu > ul > li.submenu-open ul li a {
+  font-weight: 500;
+  font-size: 14px;
+  color: #aebddc;
+  padding: 8px 12px;
 }
 
 .customizer-links {
@@ -109,37 +140,6 @@ body {
   background: #1b2850 !important;
   height: 50px;
 } */
-
-@media (min-width: 992px) {
-  .header .header-left {
-    background: #1b2850 !important;
-    height: 50px;
-    width: 240px;
-  }
-  .mini-sidebar .header-left {
-    width: 80px;
-  }
-}
-
-.page-header {
-  margin-bottom: 5px;
-}
-
-.sidebar {
-  width: 240px;
-  top: 50px;
-}
-
-.sidebar .slimScrollDiv {
-  width: 240px !important;
-}
-
-.sidebar .sidebar-menu > ul > li.submenu-open ul li a {
-  font-weight: 500;
-  font-size: 14px;
-  color: #aebddc;
-  padding: 8px 12px;
-}
 
 table.dataTable {
   border-collapse: collapse;
@@ -297,6 +297,10 @@ table.dataTable {
   position: relative;
 }
 
+.table.product-table {
+  height: 50px;
+}
+
 .form-group.select-validation-error label.error {
   position: absolute;
   top: 58px;
@@ -322,3 +326,22 @@ label.error + span > span > span {
 /* .select-validation-error .select2-selection {
   border: 1px solid;
 } */
+.user-info .user-letter {
+  background: #1b2950;
+  color: #fff;
+  width: 35px;
+  height: 35px;
+  border-radius: 10px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 15px;
+  margin-right: 10px;
+}
+hr {
+  background-color: #091947;
+  opacity: 0.5;
+  width: 95% !important;
+  margin: 0 auto !important;
+}

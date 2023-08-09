@@ -4,7 +4,7 @@ from .views import *
 
 
 urlpatterns =[
-    path('', lambda request: redirect('pos_home'), name='home'),
+    path('', lambda request: redirect('homee'), name='home'),
     # path('',ProductView.as_view(), name='home'),
     path('product/detail/<slug>/', ProductDetail.as_view(), name='product-detail'),
     path('products/category/<slug>/', ProductCategoryFiltering.as_view(), name='category'),

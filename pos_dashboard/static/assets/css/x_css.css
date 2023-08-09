@@ -4,6 +4,54 @@
   padding-left: 5px;
 }
 
+@media (min-width: 992px) {
+  .header .header-left {
+    background: #1b2850 !important;
+    height: 50px;
+    width: 200px;
+  }
+  .mini-sidebar .header-left {
+    width: 80px;
+  }
+}
+@media (min-width: 992px) {
+  .page-wrapper {
+    margin: 0 0 0 200px;
+    padding: 45px 0 0;
+  }
+}
+
+.sidebar .sidebar-menu {
+  padding: 10px;
+  padding-top: 5px;
+  background: #1b2850 !important;
+}
+@media (min-width: 991.98px) {
+  .expand-menu .sidebar {
+    width: 200px;
+  }
+}
+
+.sidebar .sidebar-menu > ul > li {
+  margin-bottom: 0px;
+}
+
+.sidebar {
+  width: 200px;
+  top: 50px;
+}
+
+.sidebar .slimScrollDiv {
+  width: 200px !important;
+}
+
+.sidebar .sidebar-menu > ul > li.submenu-open ul li a {
+  font-weight: 500;
+  font-size: 14px;
+  color: #aebddc;
+  padding: 8px 12px;
+}
+
 .row-sp {
   padding-left: 5px;
   padding-right: 5px;
@@ -49,6 +97,9 @@
   padding: 2px !important;
   padding-left: 5px !important;
 }
+.table.product-table {
+  height: 50px;
+}
 .sidebar .sidebar-menu > ul > li.submenu-open ul {
   padding: 4px 0;
 }
@@ -73,13 +124,15 @@
   margin: 0 0 25px;
   border: 1px solid #091947;
   border-width: 3px 0 1px 0;
-  border-radius: 6px;
+  border-radius: 4px;
   padding-left: 3px;
+  padding-bottom: 10px;
   background-color: white;
   box-shadow: 0px 3px 8px rgba(136, 152, 170, 0.65) !important;
 }
 .card .card-body {
   padding: 5px;
+  padding-left: 10px;
   padding-right: 8px;
 }
 .table-top {
@@ -90,6 +143,7 @@
   background: 0 0;
   height: 20px;
   border: 1px solid #6a6868;
+  font-size: 12px;
   width: 200px;
   border-radius: 2px;
   padding: 0 6px 0 30px;
@@ -103,7 +157,7 @@
   border: 2px solid #fff;
   border-radius: 50px;
   position: absolute;
-  top: 11px;
+  top: 13px;
   left: -5px;
 }
 
@@ -113,6 +167,7 @@
   color: #fff;
   font-size: 14px;
   font-weight: 700;
+  border-radius: 3px;
   padding: 3px 5px;
   -webkit-transition: all 0.2s ease;
   -ms-transition: all 0.2s ease;
@@ -172,4 +227,19 @@
 }
 .select2-container--default .select2-selection--single {
   border: 1px solid #6a6868;
+}
+
+.select2-search--dropdown {
+  display: block;
+  padding: 1px;
+}
+.select2-search--dropdown .select2-search__field {
+  padding: 1px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.select2-results__option {
+  padding: 1px 4px;
+  user-select: none;
+  -webkit-user-select: none;
 }
