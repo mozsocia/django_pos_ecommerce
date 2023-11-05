@@ -8,7 +8,6 @@ from . import views
 urlpatterns =[
 
     path('login/', views.login_view, name='login'),
-
     path("register/", register, name="register"),
     path('logout/', auth_views.LogoutView.as_view(template_name='userapp/logout.html'), name='logout'),
     path('profile/', user_views.profile, name='profile'), 
@@ -33,9 +32,5 @@ urlpatterns =[
          ),
          name='password_reset_confirm'),
 
-    path('password-reset-complete/',
-         auth_views.PasswordResetCompleteView.as_view(
-             template_name='userapp/password_reset_complete.html'
-         ),
-         name='password_reset_complete'),
+    path('password-reset-complete/', auth_views.PasswordResetCompleteView.as_view(template_name='userapp/password_reset_complete.html'),name='password_reset_complete'),
 ]
